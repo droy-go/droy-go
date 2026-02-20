@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1b4b"/>
+      <stop offset="100%" style="stop-color:#312e81"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <circle cx="50" cy="50" r="48" fill="url(#bgGrad)" stroke="url(#avatarGrad)" stroke-width="2"/>
+  
+  <!-- Avatar Body -->
+  <circle cx="50" cy="40" r="18" fill="#fbbf24"/>
+  <ellipse cx="50" cy="75" rx="25" ry="20" fill="url(#avatarGrad)"/>
+  
+  <!-- Face -->
+  <circle cx="44" cy="38" r="2" fill="#1f2937"/>
+  <circle cx="56" cy="38" r="2" fill="#1f2937"/>
+  <path d="M 44 46 Q 50 50 56 46" stroke="#1f2937" stroke-width="2" fill="none"/>
+  
+  <!-- Code Symbol -->
+  <text x="50" y="92" font-family="monospace" font-size="12" fill="#10b981" text-anchor="middle">&lt;/&gt;</text>
+</svg>
