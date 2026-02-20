@@ -1,0 +1,93 @@
+# Droy .gitignore
+
+# Build directories
+/bin/
+/obj/
+/build/
+/dist/
+
+# Compiled files
+*.o
+*.a
+*.so
+*.exe
+*.out
+*.dll
+
+# LLVM files
+*.ll
+*.bc
+*.s
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Test files
+test_output/
+coverage/
+*.gcov
+
+# Dependencies
+node_modules/
+vendor/
+
+# IDE
+*.code-workspace
+.project
+.classpath
+.settings/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake-build-*/
+
+# Android
+*.apk
+*.aab
+local.properties
+
+# Documentation build
+docs/_build/
+site/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup
+*.bak
+*.backup
+*.orig
+
+# Misc
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+dist/
