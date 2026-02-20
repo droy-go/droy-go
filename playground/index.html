@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Droy Playground - معاينة حية للكود</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/monokai.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #10b981;
+            --bg-dark: #0f0f1a;
+            --bg-card: #1a1a2e;
+            --bg-editor: #1e1e2e;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: #2d2d44;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0;
+        }
+        
+        .logo-text span {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+        }
+        
+        /* Main Layout */
+        .container {
+            display: grid;
+            grid-template-columns: 250px 1fr 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            height: calc(100vh - 90px);
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            overflow-y: auto;
+            border: 1px solid var(--border);
+        }
+        
+        .sidebar h3 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .examples-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .example-item {
+            padding: 0.75rem 1rem;
+            background: var(--bg-editor);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            font-size: 0.9rem;
+        }
+        
+        .example-item:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+        
+        .example-item.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Editor Panel */
+        .panel {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .panel-header {
+            background: var(--bg-editor);
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .panel-header h3 {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .panel-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .btn-small {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+        }
+        
+        .panel-content {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .CodeMirror {
+            height: 100%;
+            font-family: 'Fira Code', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            background: var(--bg-editor);
+        }
+        
+        /* Output Panel */
+        .output-content {
+            padding: 1.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            line-height: 1.8;
+            overflow-y: auto;
+            height: 100%;
+        }
+        
+        .output-line {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .output-line.set { color: #60a5fa; }
+        .output-line.ret { color: #a78bfa; }
+        .output-line.em { color: #34d399; }
+        .output-line.text { color: #fbbf24; }
+        .output-line.cmd { color: #f472b6; }
+        .output-line.error { color: var(--error); }
+        
+        .output-timestamp {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-left: 1rem;
+        }
+        
+        /* Status Bar */
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+        
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background: var(--bg-editor);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .tab {
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .tab:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .tab.active {
+            border-bottom-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 200px 1fr;
+            }
+            .panel:last-child {
+                grid-column: 1 / -1;
+                height: 300px;
+            }
+        }
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+        
+        /* Loading */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 0.5rem;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">◈</div>
+            <div class="logo-text">
+                <h1>Droy Playground</h1>
+                <span>معاينة حية للكود</span>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button class="btn btn-secondary" onclick="clearCode()">
+                🗑️ مسح
+            </button>
+            <button class="btn btn-primary" onclick="runCode()">
+                ▶ تشغيل الكود
+            </button>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>📁 الأمثلة</h3>
+            <div class="examples-list">
+                <div class="example-item active" onclick="loadExample('hello')">
+                    👋 Hello World
+                </div>
+                <div class="example-item" onclick="loadExample('variables')">
+                    📊 المتغيرات
+                </div>
+                <div class="example-item" onclick="loadExample('math')">
+                    🔢 العمليات الحسابية
+                </div>
+                <div class="example-item" onclick="loadExample('links')">
+                    🔗 نظام الروابط
+                </div>
+                <div class="example-item" onclick="loadExample('commands')">
+                    ⚡ الأوامر
+                </div>
+                <div class="example-item" onclick="loadExample('blocks')">
+                    📦 الكتل
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 2rem;">📚 الوثائق</h3>
+            <div class="examples-list">
+                <div class="example-item" onclick="showDocs()">
+                    📖 دليل اللغة
+                </div>
+                <div class="example-item" onclick="showSyntax()">
+                    🎨 الصيغة
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Editor -->
+        <div class="panel">
+            <div class="panel-header">
+                <h3>✏️ المحرر</h3>
+                <div class="panel-actions">
+                    <button class="btn btn-secondary btn-small" onclick="copyCode()">📋 نسخ</button>
+                    <button class="btn btn-secondary btn-small" onclick="downloadCode()">💾 تحميل</button>
+                </div>
+            </div>
+            <div class="panel-content">
+                <textarea id="editor"></textarea>
+            </div>
+        </div>
+        
+        <!-- Output -->
+        <div class="panel">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('output')">📤 الإخراج</div>
+                <div class="tab" onclick="switchTab('tokens')">🔍 Tokens</div>
+                <div class="tab" onclick="switchTab('ast')">🌳 AST</div>
+            </div>
+            <div class="panel-content">
+                <div id="output-panel" class="output-content">
+                    <div style="color: var(--text-muted); text-align: center; padding-top: 3rem;">
+                        اضغط "تشغيل الكود" لرؤية النتيجة
+                    </div>
+                </div>
+                <div id="tokens-panel" class="output-content" style="display: none;"></div>
+                <div id="ast-panel" class="output-content" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="status-bar">
+        <div class="status-item">
+            <span class="status-indicator"></span>
+            <span>Droy v1.0.0 - جاهز</span>
+        </div>
+        <div class="status-item">
+            <span>👨‍💻 مطور: @droy-go</span>
+            <span style="margin: 0 1rem;">|</span>
+            <span>🇸🇾 سوريا</span>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="droy-mode.js"></script>
+    <script src="interpreter.js"></script>
+    <script>
+        // Examples
+        const examples = {
+            hello: `// 👋 Hello World في Droy
+// =======================
+
+// استخدام الصيغة المختصرة
+~s @si = "مرحباً"
+~s @ui = "بالعالم"
+
+// استخدام الصيغة الكاملة
+set @yui = "!"
+
+// طباعة النصوص
+text @si
+text @ui
+text @yui
+
+// دمج النصوص
+em @si + " " + @ui + @yui
+
+// إرجاع القيمة
+ret @si + " " + @ui + @yui`,
+
+            variables: `// 📊 المتغيرات في Droy
+// =====================
+
+// إنشاء متغيرات
+set name = "Droy"
+~s version = "1.0.0"
+txt description = "لغة برمجة قوية"
+
+// المتغيرات الخاصة
+@si = 100
+@ui = 200
+@yui = "متغير خاص"
+@pop = "اختبار"
+@abc = "أبجد"
+
+// عرض المتغيرات
+text "الاسم: " + name
+text "الإصدار: " + version
+
+// استخدام المتغيرات الخاصة
+em @si + @ui
+
+// تعبير معقد
+set result = @si + @ui * 2
+em "النتيجة: " + result`,
+
+            math: `// 🔢 العمليات الحسابية
+// =======================
+
+// الأعداد
+set a = 10
+set b = 5
+
+// الجمع
+set sum = a + b
+em "10 + 5 = " + sum
+
+// الطرح
+set diff = a - b
+em "10 - 5 = " + diff
+
+// الضرب
+set product = a * b
+em "10 × 5 = " + product
+
+// القسمة
+set quotient = a / b
+em "10 ÷ 5 = " + quotient
+
+// تعبير معقد
+set complex = (a + b) * 2 - 5
+em "معقد: " + complex`,
+
+            links: `// 🔗 نظام الروابط
+// ==================
+
+// إنشاء رابط
+link id: "الرئيسية" api: "https://example.com"
+create-link: "الرئيسية"
+
+// رابط آخر
+link id: "api" api: "https://api.example.com/v1"
+create-link: "api"
+
+// فتح الرابط
+open-link: "الرئيسية"
+link-go: "الرئيسية"
+
+// روابط موسعة
+yoex--links id: "خارجي" api: "https://external.com"
+
+// رابط مرساة
+a-link id: "قسم1" api: "#section1"`,
+
+            commands: `// ⚡ الأوامر في Droy
+// ===================
+
+// تفعيل الوظيفة
+*/employment
+
+// تشغيل النظام
+*/Running
+
+// زيادة الضغط
+*/pressure
+*/pressure
+*/pressure
+
+// قفل النظام
+*/lock
+
+// عرض الحالة
+em "تم تنفيذ جميع الأوامر"`,
+
+            blocks: `// 📦 الكتل في Droy
+// ==================
+
+// تعريف كتلة
+block: key("رئيسي", "حاوية") {
+    set title = "كتلة رئيسية"
+    text title
+    
+    // تنسيق داخلي
+    sty {
+        set color = "أزرق"
+        set size = "كبير"
+        em "التنسيق: " + color + ", " + size
+    }
+}
+
+// حزمة
+pkg "الحزمة-الرئيسية"
+
+// عنصر وسائط
+media "https://example.com/image.png"
+
+// حلقة for
+for i in 5 {
+    text "تكرار: " + i
+}`
+        };
+        
+        // Initialize CodeMirror
+        const editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            mode: 'droy',
+            theme: 'monokai',
+            lineNumbers: true,
+            autoCloseBrackets: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            tabSize: 4,
+            lineWrapping: true,
+            rtlMoveVisually: true,
+            extraKeys: {
+                'Ctrl-Enter': runCode,
+                'Cmd-Enter': runCode
+            }
+        });
+        
+        // Load initial example
+        editor.setValue(examples.hello);
+        
+        // Load example
+        function loadExample(name) {
+            editor.setValue(examples[name] || examples.hello);
+            document.querySelectorAll('.example-item').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+        
+        // Run code
+        function runCode() {
+            const code = editor.getValue();
+            const interpreter = new DroyInterpreter();
+            
+            try {
+                const result = interpreter.execute(code);
+                
+                // Display output
+                const outputPanel = document.getElementById('output-panel');
+                outputPanel.innerHTML = result.output.map(line => {
+                    const type = line.includes('[SET]') ? 'set' :
+                                line.includes('[RET]') ? 'ret' :
+                                line.includes('[EM]') ? 'em' :
+                                line.includes('[TEXT]') ? 'text' :
+                                line.includes('[CMD]') ? 'cmd' : '';
+                    const time = new Date().toLocaleTimeString('ar-SA');
+                    return `<div class="output-line ${type}">${line}<span class="output-timestamp">${time}</span></div>`;
+                }).join('');
+                
+                // Display tokens
+                document.getElementById('tokens-panel').innerHTML = 
+                    '<pre style="color: #a5b4fc;">' + 
+                    JSON.stringify(result.tokens, null, 2) + 
+                    '</pre>';
+                
+                // Display AST
+                document.getElementById('ast-panel').innerHTML = 
+                    '<pre style="color: #34d399;">' + 
+                    JSON.stringify(result.ast, null, 2) + 
+                    '</pre>';
+                
+            } catch (error) {
+                document.getElementById('output-panel').innerHTML = 
+                    `<div class="output-line error">❌ خطأ: ${error.message}</div>`;
+            }
+        }
+        
+        // Clear code
+        function clearCode() {
+            editor.setValue('');
+            document.getElementById('output-panel').innerHTML = 
+                '<div style="color: var(--text-muted); text-align: center; padding-top: 3rem;">تم المسح</div>';
+        }
+        
+        // Copy code
+        function copyCode() {
+            navigator.clipboard.writeText(editor.getValue());
+        }
+        
+        // Download code
+        function downloadCode() {
+            const blob = new Blob([editor.getValue()], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'program.droy';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // Switch tab
+        function switchTab(tab) {
+            document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            document.getElementById('output-panel').style.display = tab === 'output' ? 'block' : 'none';
+            document.getElementById('tokens-panel').style.display = tab === 'tokens' ? 'block' : 'none';
+            document.getElementById('ast-panel').style.display = tab === 'ast' ? 'block' : 'none';
+        }
+        
+        // Show docs
+        function showDocs() {
+            alert('الوثائق قريباً!');
+        }
+        
+        // Show syntax
+        function showSyntax() {
+            alert('دليل الصيغة قريباً!');
+        }
+    </script>
+</body>
+</html>
