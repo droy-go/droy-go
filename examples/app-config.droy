@@ -1,0 +1,39 @@
+// ===================================
+// App Configuration Example
+// ===================================
+
+// App info
+set appName = "MyApp"
+set version = "1.0.0"
+set author = "@droy-go"
+
+// Display info
+text "=== " + appName + " ==="
+text "Version: " + version
+text "Author: " + author
+
+// Settings block
+block: key("settings") {
+    set theme = "dark"
+    set language = "en"
+    set notifications = "on"
+    
+    sty {
+        set color = "blue"
+        set font = "Arial"
+        em "Theme: " + theme
+    }
+}
+
+// Package
+pkg appName + "-package"
+
+// Links
+link id: "repo" api: "https://github.com/user/" + appName
+create-link: "repo"
+
+// Commands
+*/employment
+*/Running
+
+ret "App configured!"
