@@ -8,7 +8,7 @@
 
 [![Version](badges/version-badge.svg)](https://github.com/droy-go/droy/releases)
 [![License](badges/license-badge.svg)](LICENSE)
-[![Made in Syria](badges/syria-badge.svg)](#)
+[![Made in Syria](badges/syria-badge.png)](#)
 [![Author](badges/author-badge.svg)](#)
 
 [🌐 المعاينة الحية](https://droy-playground.vercel.app) • [📥 تحميل المحرر](https://github.com/droy-go/droy/releases) • [📖 الوثائق](docs/README.md)
