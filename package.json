@@ -1,0 +1,34 @@
+{
+  "name": "droy-language",
+  "version": "1.0.0",
+  "description": "Droy Programming Language - A complete markup and programming language",
+  "main": "src/main.c",
+  "scripts": {
+    "build": "make",
+    "test": "make test",
+    "clean": "make clean",
+    "editor": "cd editor && python -m http.server 8080",
+    "playground": "cd playground && python -m http.server 8081"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/droy-go/droy.git"
+  },
+  "keywords": [
+    "programming-language",
+    "markup-language",
+    "compiler",
+    "interpreter",
+    "llvm",
+    "droy"
+  ],
+  "author": "droy-go <droy-go@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/droy-go/droy/issues"
+  },
+  "homepage": "https://github.com/droy-go/droy#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
