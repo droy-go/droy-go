@@ -270,14 +270,13 @@ droy/
 
 **[@droy-go](https://github.com/droy-go)**
 
-<img src="badges/developer-avatar.svg" width="100" alt="Developer">
-
+<img src="badges/droy-icon.svg" width="100" alt="Developer">
+  
 🎂 **العمر:** 19 سنة  
 🌍 **البلد:** 🇸🇾 سوريا  
 💻 **التخصص:** مطور لغات برمجة
 
 [![GitHub](badges/github-badge.svg)](https://github.com/droy-go)
-[![Twitter](badges/twitter-badge.svg)](https://twitter.com/droy_go)
 
 </td>
 </tr>
