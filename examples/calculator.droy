@@ -1,0 +1,17 @@
+// ===================================
+// Calculator Example
+// ===================================
+
+set a = 20
+set b = 10
+
+em "=== Calculator ==="
+em a + " + " + b + " = " + (a + b)
+em a + " - " + b + " = " + (a - b)
+em a + " * " + b + " = " + (a * b)
+em a + " / " + b + " = " + (a / b)
+
+set result = (a + b) * 2 - a / b
+em "Complex: " + result
+
+ret "Done!"
