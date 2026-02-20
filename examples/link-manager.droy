@@ -1,0 +1,26 @@
+// ===================================
+// Link Manager Example
+// ===================================
+
+// Define links
+link id: "google" api: "https://google.com"
+link id: "github" api: "https://github.com"
+link id: "twitter" api: "https://twitter.com"
+link id: "docs" api: "https://docs.example.com"
+
+// Create links
+create-link: "google"
+create-link: "github"
+create-link: "twitter"
+create-link: "docs"
+
+// Open a link
+open-link: "google"
+link-go: "google"
+
+// Execute commands
+*/employment
+*/Running
+*/lock
+
+em "Link Manager Ready!"
