@@ -1,157 +1,185 @@
+ للأسف لا أستطيع إنشاء ملفات قابلة للتنزيل مباشرة. ولكن يمكنك:
+
+## 📝 نسخ الكود مباشرة:
+
+
 <div align="center">
 
-<img src="badges/droy-logo.svg" width="150" alt="Droy Logo">
+![Droy Logo](https://img.shields.io/badge/◈-Droy%20Language-FF6B6B?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0xMiAyTDQuNSAyMC4yOUw1LjIxIDIxTDEyIDE4TDE4Ljc5IDIxTDE5LjUgMjAuMjlMMTIgMloiLz48L3N2Zz4=&logoColor=white)
 
 # ◈ Droy Programming Language
 
-**لغة برمجة وتعليماتية قوية وسهلة الاستخدام**
+**A Modern, Powerful & Elegant Programming Language**
 
-[![Version](badges/version-badge.svg)](https://github.com/droy-go/droy/releases)
-[![License](badges/license-badge.svg)](LICENSE)
-[![Made in Syria](badges/syria-badge.png)](#)
-[![Author](badges/author-badge.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-4ECDC4?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/Version-1.0.0-FF6B6B?style=for-the-badge)]()
+[![Made with Love](https://img.shields.io/badge/Made%20with-❤-FF6B6B?style=for-the-badge)]()
+[![Stars](https://img.shields.io/badge/⭐-Star%20Us-FFD93D?style=for-the-badge)]()
 
-[🌐 المعاينة الحية](https://droy-playground.vercel.app) • [📥 تحميل المحرر](https://github.com/droy-go/droy/releases) • [📖 الوثائق](docs/README.md)
+> *Code with Power, Build with Style*
+
+[🚀 Quick Start](#-quick-start) • [✨ Features](#-features) • [📚 Documentation](#-language-reference) • [🤝 Contributing](#-contributing)
 
 </div>
 
 ---
 
-## 🎯 ما هي Droy؟
+## 🎯 What is Droy?
 
-**Droy** هي لغة برمجة وتعليماتية (Markup & Programming Language) تم تصميمها لتكون:
-- **سهلة التعلم** - صيغة بسيطة ومفهومة
-- **قوية** - دعم المتغيرات، العمليات الحسابية، والتحكم بالتدفق
-- **مرنة** - نظام روابط متقدم وكتل قابلة لإعادة الاستخدام
-- **عصرية** - محرر أكواد احترافي مع دعم اللغة العربية
+<div align="center">
+
+| 🎓 Easy to Learn | ⚡ Powerful | 🔗 Flexible | 🌍 Modern |
+|:---:|:---:|:---:|:---:|
+| Simple & intuitive syntax | Variables & arithmetic operations | Advanced linking system | Professional IDE with RTL support |
+
+</div>
+
+### 👋 Hello World
 
 ```droy
-// 👋 Hello World في Droy
-~s @si = "مرحباً"
-~s @ui = "بالعالم"
+~s @si = "Hello"
+~s @ui = "World"
 em @si + " " + @ui + "!"
 ```
 
 ---
 
-## ✨ المميزات
+## ✨ Features
 
-<table>
-<tr>
-<td width="50%">
+<div align="center">
 
-### 🚀 لغة برمجة كاملة
-- ✅ **Lexer & Parser** مبنيان من الصفر
-- ✅ **AST** (Abstract Syntax Tree)
-- ✅ **Interpreter** لتنفيذ الكود
-- ✅ **LLVM Backend** للترجمة
+### 🚀 Complete Programming Language
 
-</td>
-<td width="50%">
+| Feature | Status | Description |
+|:--------|:------:|-------------|
+| Lexer & Parser | ✅ | Built from scratch |
+| AST | ✅ | Abstract Syntax Tree |
+| Interpreter | ✅ | Code execution engine |
+| LLVM Backend | ✅ | High-performance compilation |
 
-### 🎨 محرر احترافي
-- ✅ **Syntax Highlighting** مخصص
-- ✅ **Auto-completion** ذكي
-- ✅ **معاينة حية** للكود
-- ✅ **دعم RTL** للعربية
+### 🎨 Professional Editor
 
-</td>
-</tr>
-<tr>
-<td width="50%">
+| Feature | Status | Description |
+|:--------|:------:|-------------|
+| Syntax Highlighting | ✅ | Custom language support |
+| Auto-completion | ✅ | Intelligent code completion |
+| Live Preview | ✅ | Real-time code preview |
+| RTL Support | ✅ | Full Arabic/RTL support |
 
-### 🔗 نظام روابط متقدم
+</div>
+
+### 🔗 Advanced Linking System
+
 ```droy
 link id: "home" api: "https://example.com"
 create-link: "home"
 link-go: "home"
 ```
 
+### ⚡ Powerful Commands
+
+```droy
+*/employment    # Activate function
+*/Running       # Run system
+*/pressure      # Increase pressure
+*/lock          # Lock system
+```
+
+---
+
+## 📥 Installation
+
+<div align="center">
+
+### 🔧 Build from Source
+
+```bash
+# Clone the repository
+git clone https://github.com/droy-go/droy.git
+cd droy
+
+# Build the compiler
+make
+
+# Run an example
+./bin/droy examples/hello.droy
+```
+
+</div>
+
+### 📱 Download Editor
+
+<div align="center">
+
+| Platform | Link | Size | Status |
+|:--------:|:----:|:----:|:------:|
+| 🤖 Android APK | [📥 Download](#) | 15 MB | ✅ Available |
+| 🌐 Web Editor | [Open Editor](https://droy-go.github.io/droy-go/editor/) | - | ✅ Online |
+| 🖥️ Desktop | [Coming Soon](#) | - | 🚧 In Development |
+
+</div>
+
+---
+
+## 🚀 Quick Start
+
+### 📦 Variables
+
+<table>
+<tr>
+<td width="50%">
+
+**Full Syntax:**
+```droy
+set name = "Droy"
+```
+
 </td>
 <td width="50%">
 
-### ⚡ أوامر قوية
+**Short Syntax:**
 ```droy
-*/employment
-*/Running
-*/pressure
-*/lock
+~s version = "1.0.0"
 ```
 
 </td>
 </tr>
 </table>
 
----
-
-## 📥 التثبيت
-
-### 🔧 بناء من المصدر
-
-```bash
-# استنساخ المستودع
-git clone https://github.com/droy-go/droy.git
-cd droy
-
-# بناء المترجم
-make
-
-# تشغيل مثال
-./bin/droy examples/hello.droy
+**Special Variables:**
+```droy
+@si = 100    # System Integer
+@ui = 200    # User Integer
 ```
 
-### 📱 تحميل المحرر (APK)
+### ➕ Arithmetic Operations
 
-| النسخة | الرابط | الحجم |
-|--------|--------|-------|
-| Android APK | [📥 تحميل](https://github.com/droy-go/droy/releases/download/v1.0.0/droy-editor.apk) | 15 MB |
-| Web Editor | [🌐 فتح](https://droy-playground.vercel.app) | - |
+<div align="center">
 
----
+| Operation | Code | Result |
+|:---------:|:----:|:------:|
+| ➕ Addition | `set sum = a + b` | 15 |
+| ➖ Subtraction | `set diff = a - b` | 5 |
+| ✖️ Multiplication | `set prod = a * b` | 50 |
+| ➗ Division | `set quot = a / b` | 2 |
 
-## 🚀 البدء السريع
+</div>
 
-### المتغيرات
-
-```droy
-// الصيغة الكاملة
-set name = "Droy"
-
-// الصيغة المختصرة
-~s version = "1.0.0"
-
-// المتغيرات الخاصة
-@si = 100
-@ui = 200
-```
-
-### العمليات الحسابية
+### 🔗 Link System
 
 ```droy
-set a = 10
-set b = 5
-
-set sum = a + b      // 15
-set diff = a - b     // 5
-set prod = a * b     // 50
-set quot = a / b     // 2
-```
-
-### نظام الروابط
-
-```droy
-// تعريف الرابط
+// 1️⃣ Define link
 link id: "google" api: "https://google.com"
 
-// إنشاء الرابط
+// 2️⃣ Create link
 create-link: "google"
 
-// فتح الرابط
+// 3️⃣ Open link
 open-link: "google"
 link-go: "google"
 ```
 
-### الكتل والتنسيق
+### 🧱 Blocks & Styling
 
 ```droy
 block: key("main") {
@@ -167,163 +195,189 @@ block: key("main") {
 
 ---
 
-## 📚 مرجع اللغة
+## 📚 Language Reference
 
-### الكلمات المفتاحية
+<div align="center">
 
-| الكلمة | الاختصار | الوصف |
-|--------|----------|-------|
-| `set` | `~s` | تعريف متغير |
-| `ret` | `~r` | إرجاع قيمة |
-| `em` | `~e` | طباعة تعبير |
-| `text` | `txt`, `t` | طباعة نص |
-| `for` | - | حلقة تكرار |
-| `sty` | - | كتلة تنسيق |
-| `pkg` | - | تعريف حزمة |
-| `link` | - | تعريف رابط |
+### 🔑 Keywords
 
-### المتغيرات الخاصة
+| Keyword | Short | Description | Usage |
+|:-------:|:-----:|:-----------:|:-----:|
+| `set` | `~s` | Define variable | `~s x = 10` |
+| `ret` | `~r` | Return value | `~r x` |
+| `em` | `~e` | Print expression | `~e "Hello"` |
+| `text` | `txt`, `t` | Print text | `t "Hello"` |
+| `for` | - | Loop statement | `for i in range` |
+| `sty` | - | Style block | `sty { ... }` |
+| `pkg` | - | Define package | `pkg mylib` |
+| `link` | - | Define link | `link id: "api"` |
 
-| المتغير | الوصف |
-|---------|-------|
-| `@si` | System Integer |
-| `@ui` | User Integer |
-| `@yui` | Dynamic Variable |
-| `@pop` | Pop Variable |
-| `@abc` | Alphabet Variable |
+### 📊 Special Variables
 
-### الأوامر
+| Variable | Type | Description | Example |
+|:--------:|:----:|:-----------:|:-------:|
+| `@si` | Integer | System Integer | `@si = 100` |
+| `@ui` | Integer | User Integer | `@ui = 200` |
+| `@yui` | Dynamic | Dynamic Variable | `@yui = "text"` |
+| `@pop` | Variable | Pop Variable | `@pop = true` |
+| `@abc` | String | Alphabet Variable | `@abc = "ABC"` |
 
-| الأمر | الوظيفة |
-|-------|---------|
-| `*/employment` | تفعيل الوظيفة |
-| `*/Running` | تشغيل النظام |
-| `*/pressure` | زيادة الضغط |
-| `*/lock` | قفل النظام |
+### ⚡ Special Commands
 
----
+| Command | Function | Usage |
+|:-------:|:--------:|:-----:|
+| `*/employment` | Activate function | `*/employment` |
+| `*/Running` | Run system | `*/Running` |
+| `*/pressure` | Increase pressure | `*/pressure` |
+| `*/lock` | Lock system | `*/lock` |
 
-## 🛠️ بناء المشروع
-
-```bash
-# جميع الأوامر
-make all          # بناء المشروع
-make clean        # تنظيف
-make test         # تشغيل الاختبارات
-make install      # تثبيت النظامي
-make llvm         # بناء LLVM backend
-make editor       # بناء المحرر
-```
+</div>
 
 ---
 
-## 📁 هيكل المشروع
+## 🛠️ Build Commands
+
+<div align="center">
+
+| Command | Function | Description |
+|:-------:|:--------:|:------------|
+| `make all` | 🏗️ Full Build | Build entire project |
+| `make clean` | 🧹 Clean | Remove temporary files |
+| `make test` | 🧪 Test | Run test suite |
+| `make install` | 📥 Install | System installation |
+| `make llvm` | ⚙️ LLVM | Build LLVM backend |
+| `make editor` | 🎨 Editor | Build code editor |
+
+</div>
+
+---
+
+## 📁 Project Structure
 
 ```
-droy/
-├── 📂 src/              # شفرة المصدر (C)
-│   ├── lexer.c         # محلل المفردات
-│   ├── parser.c        # محلل النحوي
-│   ├── interpreter.c   # المفسر
-│   └── main.c          # نقطة الدخول
-├── 📂 editor/           # المحرر الاحترافي
+◈ droy/
+│
+├── 📂 src/                    📝 Source Code (C)
+│   ├── lexer.c               Lexical Analyzer
+│   ├── parser.c              Syntax Parser
+│   ├── interpreter.c         Interpreter
+│   └── main.c                Entry Point
+│
+├── 📂 editor/                 🎨 Professional Editor
 │   ├── index.html
 │   ├── editor.css
 │   ├── editor.js
 │   └── droy-mode.js
-├── 📂 playground/       # المعاينة الحية
+│
+├── 📂 playground/             🚀 Live Playground
 │   └── index.html
-├── 📂 llvm/             # LLVM Backend
+│
+├── 📂 llvm/                   ⚙️ LLVM Backend
 │   └── droy_backend.cpp
-├── 📂 examples/         # الأمثلة
+│
+├── 📂 examples/               📚 Examples
 │   ├── hello.droy
 │   ├── variables.droy
 │   ├── math.droy
 │   └── links.droy
-├── 📂 docs/             # الوثائق
-├── 📂 badges/           # الأوسمة
+│
+├── 📂 docs/                   📖 Documentation
+├── 📂 badges/                 🏷️ Badges
 ├── Makefile
 └── README.md
 ```
 
 ---
 
-## 🎨 المعاينة الحية
+## 🎨 Try It Now
 
 <div align="center">
 
-### [🌐 جرب Droy الآن!](https://droy-playground.vercel.app)
+### 🚀 [Live Playground](https://droy-go.github.io/droy-go/playground/)
 
-<img src="badges/playground-preview.png" width="80%" alt="Playground Preview">
+Try Droy directly in your browser without installation!
+
+[![Try Now](https://img.shields.io/badge/🚀-Try%20Now-FF6B6B?style=for-the-badge)](https://droy-go.github.io/droy-go/playground/)
 
 </div>
 
 ---
 
-## 👨‍💻 المطور
+## 👨‍💻 Development Team
 
 <div align="center">
 
-<table>
-<tr>
-<td align="center">
+### Lead Developer
 
 **[@droy-go](https://github.com/droy-go)**
 
-<img src="badges/droy-icon.svg" width="100" alt="Developer">
-  
-🎂 **العمر:** 19 سنة  
-🌍 **البلد:** 🇸🇾 سوريا  
-💻 **التخصص:** مطور لغات برمجة
-
-[![GitHub](badges/github-badge.svg)](https://github.com/droy-go)
-
-</td>
-</tr>
-</table>
+| 🎂 Age | 🌍 Country | 💻 Specialty |
+|:------:|:----------:|:------------:|
+| 19 | 🇸🇾 Syria | Programming Language Developer |
 
 </div>
 
 ---
 
-## 🤝 المساهمة
+## 🤝 Contributing
 
-نرحب بمساهماتكم! يمكنكم المساهمة من خلال:
+<div align="center">
 
-1. 🍴 **Fork** المستودع
-2. 🌿 إنشاء **Branch** جديد (`git checkout -b feature/amazing`)
-3. 💾 **Commit** التغييرات (`git commit -m 'Add amazing feature'`)
-4. 📤 **Push** إلى الفرع (`git push origin feature/amazing`)
-5. 🔄 فتح **Pull Request**
+### How to Contribute?
+
+</div>
+
+1. 🍴 **Fork** the repository
+2. 🌿 Create a **Branch**: `git checkout -b feature/amazing-feature`
+3. 💾 **Commit** changes: `git commit -m 'Add amazing feature'`
+4. 📤 **Push** to branch: `git push origin feature/amazing-feature`
+5. 🔄 Open a **Pull Request**
+
+<div align="center">
+
+[![Contributors](https://img.shields.io/badge/👥-Contributors-4ECDC4?style=for-the-badge)](https://github.com/droy-go/droy-go/graphs/contributors)
+
+</div>
 
 ---
 
-## 📜 الترخيص
+## 📜 License
 
-هذا المشروع مرخص بموجب [MIT License](LICENSE)
+<div align="center">
+
+This project is licensed under the **MIT License**
 
 ```
 MIT License
 Copyright (c) 2024 droy-go
 ```
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-4ECDC4?style=for-the-badge)](LICENSE)
+
+</div>
+
 ---
 
-## 🙏 شكر خاص
+## 🙏 Acknowledgments
 
-- [LLVM](https://llvm.org/) - لبنية الترجمة
-- [CodeMirror](https://codemirror.net/) - للمحرر الاحترافي
-- [All Contributors](https://github.com/droy-go/droy/graphs/contributors) - للمساهمين
+<div align="center">
+
+| Project | Usage |
+|:-------:|:------|
+| [LLVM](https://llvm.org/) | Compilation infrastructure |
+| [CodeMirror](https://codemirror.net/) | Professional editor |
+| [Contributors](https://github.com/droy-go/droy-go/graphs/contributors) | ❤️ Your amazing support |
+
+</div>
 
 ---
 
 <div align="center">
 
-**⭐ لا تنسَ عمل Star للمشروع!**
+### ⭐ Don't forget to Star the project!
 
-<img src="badges/droy-icon.svg" width="50" alt="Droy Icon">
+[![Star](https://img.shields.io/badge/⭐-Star-FFD93D?style=for-the-badge&logo=github)](https://github.com/droy-go/droy-go)
 
-**[◈ Droy Language](https://github.com/droy-go/droy)**  
-*Code with Power, Build with Style*
+**◈ Droy Language** - *Code with Power, Build with Style*
 
 </div>
